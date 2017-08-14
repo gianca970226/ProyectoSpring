@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="demoProyecto/src/main/java"/>
+	<classpathentry kind="src" path="demoProyecto/src/test/java"/>
+	<classpathentry excluding="demoProyecto/src/main/java/|demoProyecto/src/test/java/" kind="src" path=""/>
+	<classpathentry kind="lib" path="demoProyecto/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="demoProyecto/target/classes"/>
+</classpath>
