@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Mis Primeros Pasos</title>
+<link rel="stylesheet" type="text/css"
+	href="includes/boostrap3/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="includes/JqGrid/css/ui.jqgrid-bootstrap.css" />
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/formulario.css" type="text/css" />
+<link rel="stylesheet" href="css/index.css" type="text/css" />
+
+<script type="text/javascript"
+	src="includes/jquery-ui/external/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+	src="includes/boostrap3/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="includes/JqGrid/js/i18n/grid.locale-en.js"></script>
+<script type="text/javascript"
+	src="js/gestionVisitas.js"></script>
+<script type="text/javascript"
+	src="js/gestionCondena.js"></script>
+<script type="text/javascript"
+	src="includes/JqGrid/js/jquery.jqGrid.min.js"></script>
+<script type="text/javascript" src="/js/Index.js"></script>
+
+</head>
+<body>
+
+	<header class="navbar-wrapper">
+		<div class="container">
+
+			<nav class="menu1 navbar  navbar-static-top navbar-default"
+				style="color: #003eff;">
+
+				<div class="navbar-header">
+
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class=" menu1 sr-only">Toggle de navegacion</span> <span
+							class=" menu1 icon-bar"></span> <span class="menu1 icon-bar"></span>
+						<span class="menu1 icon-bar"></span>
+					</button>
+
+					<a class="navbar-brand" href="#">MIS PRIMEROS PASOS</a>
+
+				</div>
+
+
+				<div id="navbar" class="navbar-collapse collapse">
+
+					<ul class="menu1 nav navbar-nav">
+
+						<li class="active"><a href="#">INICIO</a></li>
+						<li class=""><a href="#">ACERCA DE</a></li>
+						<li class="" style=""><a href="cerrarSession" id="logOut"><span>CERRAR
+									SESION</span></a></li>
+					</ul>
+				</div>
+
+			</nav>
+
+		</div>
+	</header>
+
+
+	<div class="container fill">
+		<div class="row" style="margin-top: 80px">
+			<br />
+			<div class="col-sm-3 col-md-3">
+				<div class="panel-group" id="accordion">
+
+
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#One"><span
+									class="glyphicon glyphicon-home"> </span> Celda</a>
+							</h4>
+						</div>
+						<div id="One" class="panel-collapse collapse in">
+							<div class="panel-body">
+								<ul class="list-group">
+									<li class="list-group-item"><span
+										class="glyphicon glyphicon-plus"> </span> <a
+										id="ingresarcelda" href="/IngresarCelda" class="href">
+											Ingresar celda </a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#Two"><span
+									class="glyphicon glyphicon-barcode"> </span> Bloque</a>
+							</h4>
+						</div>
+
+						<div id="Two" class="panel-collapse collapse">
+							<div class="panel-primary">
+								<div class="panel-body">
+									<ul class="list-group">
+										<li class="list-group-item"><span
+											class="glyphicon glyphicon-list-alt"> </span> <a
+											href="/IngresarBloque" class="href" id="ingresarbloque">
+												Ingresar bloque </a></li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+
+
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#Three"><span
+									class="glyphicon glyphicon-user"> </span> Preso</a>
+							</h4>
+						</div>
+
+						<div id="Three" class="panel-collapse collapse">
+							<div class="panel-primary">
+								<div class="panel-body">
+									<ul class="list-group">
+										<li class="list-group-item"><span
+											class="glyphicon glyphicon-list-alt"> </span> <a
+											href="/IngresarPreso" class="href" id="ingresarpreso">
+												Ingresar Preso </a></li>
+												
+										<li class="list-group-item"><span
+											class="glyphicon glyphicon-list-alt"> </span> <a
+											href="#" class="href" id="crearcondena">
+												Crear Condena </a></li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#Four"><span
+									class="glyphicon glyphicon-user"> </span> Visitas</a>
+							</h4>
+						</div>
+
+						<div id="Four" class="panel-collapse collapse">
+							<div class="panel-primary">
+								<div class="panel-body">
+									<ul class="list-group">
+										<li class="list-group-item"><span
+											class="glyphicon glyphicon-list-alt"> </span> <a
+											href="/BuscarVisitante" class="href" id="BuscarVisitante">
+												BuscarVisitante </a></li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+			</div>
+
+
+			<div class="col-sm-9 col-md-9">
+				<div id="contenido" th:switch="${control}">
+					<div th:case="'celda'" id="containerCelda" align="center">
+						<div th:replace="ingresarCelda :: ingresarCelda">&nbsp;</div>
+					</div>
+					<div th:case="'bloque'" id="containerBloque" align="center">
+						<div th:replace="ingresarBloque :: ingresarBloque">&nbsp;</div>
+					</div>
+					<div th:case="'buscarVisitante'" id="containerBuscarVisitante" align="center">
+						<div th:replace="buscarVisitante :: buscarVisitante">&nbsp;</div>
+					</div>
+					<div th:case="'preso'" id="containerPreso" align="center">
+						<div th:replace="ingresarPreso :: ingresarPreso">&nbsp;</div>
+					</div>
+					
+				</div>
+			</div>
+
+
+
+		</div>
+
+
+
+
+	</div>
+
+
+	<footer> </footer>
+
+
+
+
+</body>
+</html>

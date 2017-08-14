@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Registrar Visitante</title>
+
+</head>
+
+<body>
+
+	<div id="containerVisitante" align="center"
+		th:fragment="registrarVisitante">
+		<form id="formRegistroVisitante" class="sign-up" action="#"
+			th:action="@{/RegistrarVisitante}" th:object="${visitante}"
+			method="post">
+			<h1 class="sign-up-title">Registrar Visitante</h1>
+			<div>
+				<input type="text" class="sign-up-input"
+					placeholder="Ingrese Nombre" th:field="*{nombre}"
+					required="required" />
+			</div>
+			<div>
+				<input type="text" th:field="*{apellido}" required="required"
+					class="sign-up-input" placeholder="Ingrese Apellido" />
+			</div>
+			<div>
+
+				<input type="number" name="cedula" th:value="${cedula}" required="required"
+					class="sign-up-input" />
+			</div>
+			<div>
+				<input type="number" th:field="*{edad}" required="required"
+					class="sign-up-input" placeholder="Ingrese Edad" />
+			</div>
+			<div>
+				<input type="text" th:field="*{huella}" required="required"
+					class="sign-up-input" placeholder="Ingrese id huella" />
+			</div>
+			<div>
+				<input type="submit" value="Registrar Visitante"
+					class="sign-up-button" />
+			</div>
+			<div class="sign-up-error" th:switch="${resultado}">
+				<p th:case="'error'">El id ya esta registrado</p>
+				<p th:case="'error2'">El id no es numerico</p>
+				<p th:case="'ok'">Registro Exitoso</p>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

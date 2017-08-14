@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Buscar Visitante</title>
+
+</head>
+
+<body>
+
+	<div id="containerBloque" align="center" th:fragment="buscarVisitante">
+		<form id="formBuscarVisitante" class="sign-up" action="#"
+			th:action="@{/buscarVisitante}" method="post">
+			<h1 class="sign-up-title">Buscar Visitante</h1>
+			<input type="number" class="sign-up-input"
+				placeholder="Ingrese cedula" id="cedulaVisitante"
+				name="cedulaVisitante" th:value="${cedula}" required="required" />
+			<select id="id_preso" class="sign-up-input">
+				<option th:value="-10">...</option>
+				<div th:switch="${control3}">
+					<option th:case="ok" th:value="-1">Otro preso</option>
+				</div>
+				<option th:each="preso : ${presos_visitante}"
+					th:value="${preso.getCedula()}"
+					th:text="${preso.getCedula()+'-'+preso.getNombre()}">Wireframe</option>
+			</select> <br></br> <input type="submit" value="Buscar Visitante"
+				class="sign-up-button" />
+		</form>
+		<div th:switch="${control2}">
+			<div th:case="'registrar'">
+				<div th:replace="registrarVisitante :: registrarVisitante">&nbsp;</div>
+			</div>
+			<div th:case="'entrevista'">
+				<div th:replace="registrarEntrevista :: registrarEntrevista">&nbsp;</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

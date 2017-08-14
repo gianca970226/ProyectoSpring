@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Login</title>
+<link href="/css/login.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css"
+	href="/includes/boostrap3/css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script type="text/javascript"
+	src="/includes/jquery-ui/external/jquery/jquery.js"></script>
+<script type="text/javascript"
+	src="/includes/boostrap3/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+	<form class="sign-up" action="#" th:action="@{/login}" method="post">
+		<h1 class="sign-up-title">Incio de session</h1>
+		<input type="number" class="sign-up-input"
+			placeholder="Cual es su cedula?" name="cedula"
+			required="required" /> <input type="password" name="password"
+			required="required" class="sign-up-input"
+			placeholder="Ingrese su password" /> <input type="submit"
+			value="Entrar!" class="sign-up-button" />
+		<div class="sign-up-error" th:switch="${error}">
+			<p th:case="'error'">Datos invalidos</p>
+		</div>
+	</form>
+
+
+	<div class="about">
+		<!--  	<p class="about-links">
+			<a href="http://www.cssflow.com/snippets/sign-up-form"
+				target="_parent">View Article</a> <a
+				href="http://www.cssflow.com/snippets/sign-up-form.zip"
+				target="_parent">Download</a>
+		</p>-->
+		<p class="about-author">
+			&copy; 2017 <a href="http://www.ucaldas.edu.co/portal/"
+				target="_blank">Universidad de caldas</a> <br></br> Original PSD by
+			<a href="https://www.facebook.com/giiankrlox" target="_blank">Gian
+				Carlos Figueroa</a>-<a
+				href="https://www.facebook.com/michaelmarinvalencia" target="_blank">Michael
+				Marin</a>
+		</p>
+	</div>
+
+</body>
+
+
+
+
+</html>

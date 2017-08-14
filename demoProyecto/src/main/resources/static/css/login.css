@@ -1,0 +1,48 @@
+@charset "ISO-8859-1";
+
+#logincontainer 
+{
+	
+position: absolute;
+font-size: 20px;
+width: 400px;
+height: 500px;
+border:1px solid #899caa;
+top: 50%;
+left: 50%;
+margin-top: -200px;
+margin-left: -250px;
+}
+input[type=number]::-webkit-outer-spin-button,
+
+input[type=number]::-webkit-inner-spin-button {
+
+    -webkit-appearance: none;
+
+    margin: 0;
+
+}
+
+ 
+
+input[type=number] {
+
+    -moz-appearance:textfield;
+
+}
+
+#logincontainer #buttonlogin{
+    width:auto;
+    background-color: #339cdf;  /*//COLOR DEL BOTON ENTRAR*/
+    color:#fff;
+    padding:7px 10px 8px 10px;
+    text-shadow:0px -1px #278db8;
+    border:1px solid #339cdf;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    margin:0 12px 0 0;
+    cursor:pointer;
+    *padding:7px 2px 8px 2px; /* IE7 Fix */
+}
+

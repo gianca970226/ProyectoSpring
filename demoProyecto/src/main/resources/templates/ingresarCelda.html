@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Ingresar Celda</title>
+
+</head>
+
+<body>
+
+	<div id="containerCelda" align="center" th:fragment="ingresarCelda">
+		<form id="formRegistroBloque" class="sign-up" action="#"
+			th:action="@{/IngresarCelda}" th:object="${celda}" method="post">
+			<h1 class="sign-up-title">Ingresar Celda</h1>
+			<input type="number" class="sign-up-input"
+				placeholder="Ingrese ID Celda" th:field="*{id}" required="required" />
+			<input type="number" th:field="*{capacidad}" required="required"
+				class="sign-up-input" placeholder="Ingrese capacidad" /> <select
+				class="sign-up-input" name="bloque_id">
+				<option th:each="bloque : ${bloques}" th:value="${bloque.getId()}"
+					th:text="${bloque.getId()+'-'+bloque.getNombre_patio()}">Wireframe</option>
+			</select> <input type="submit" value="Registrar Celda" class="sign-up-button" />
+			<div class="sign-up-error" th:switch="${resultado}">
+				<p th:case="'error'">El id ya esta registrado</p>
+				<p th:case="'error2'">El id no es numerico</p>
+				<p th:case="'ok'">Registro Exitoso</p>
+			</div>
+		</form>
+
+
+	</div>
+</body>
+</html>

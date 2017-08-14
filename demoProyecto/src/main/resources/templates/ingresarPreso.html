@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Ingresar Preso</title>
+</head>
+
+<body>
+
+	<div id="containerPreso" align="center" th:fragment="ingresarPreso">
+		<form id="formRegistroPreso" class="sign-up" action="#"
+			th:action="@{/IngresarPreso}" th:object="${preso}" method="post">
+			<h1 class="sign-up-title">Ingresar Preso</h1>
+			<input type="number" class="sign-up-input"
+				placeholder="Ingrese Cedula Preso" th:field="*{cedula}" required="required" />
+			<input type="text" th:field="*{nombre}" required="required"
+				class="sign-up-input" placeholder="Ingrese Nombre Preso" /> 
+				<input type="text" th:field="*{apellido}" required="required"
+				class="sign-up-input" placeholder="Ingrese Apellido Preso" />
+				<input type="number" th:field="*{edad}" required="required"
+				class="sign-up-input" placeholder="Ingrese Edad Preso" />
+				<input type="date" required="required"
+				class="sign-up-input" placeholder="Ingrese Fecha Nacimiento" name="fechanacimiento" />
+				<input type="number" th:field="*{huella}" required="required"
+				class="sign-up-input" placeholder="Ingrese Huella Preso" />
+				
+				<input
+				type="submit" value="Registrar Preso" class="sign-up-button" />
+			<div class="sign-up-error" th:switch="${resultado}">
+				<p th:case="'error'">El id ya esta registrado</p>
+				<p th:case="'error2'">El id no es numerico</p>
+				<p th:case="'ok'">Registro Exitoso</p>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
