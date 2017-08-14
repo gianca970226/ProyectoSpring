@@ -3,6 +3,7 @@ Servers
 *.java.hsp
 *.sonarj
 *.sw*
+.metadata
 .DS_Store
 .settings
 .springBeans
